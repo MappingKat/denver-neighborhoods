@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
     <title>Denver Neighborhoods</title>
     <style>
       body {
@@ -22,17 +23,83 @@
     <script>
       var NPMap = {
         div: 'map',
-        center: [
-        lat: 39.766853051187304,
-        lng: -104.89471435546875]
+        center: {
+          lat: 39.7668530,
+          lng: -104.89471
+        },
         baseLayers: ['cartodb-positron'],
-        zoom: 18,
+        zoom: 11,
         overlays: [{
           attribution: 'Denver county',
           name: 'Neighborhoods',
           table: 'denver_neighborhoods',
           type: 'cartodb',
-          user: 'denverstartup'
+          user: 'denverstartup',
+          cartocss: '#denver_neighborhoods{'+
+          'polygon-fill: #FFFFCC;'+
+          'polygon-opacity: 0.4;'+
+          'line-color: #FFF;'+
+          'line-width: 0.7;'+
+          'line-opacity: 0.9;'+
+          '[nbhd_id <= 78] {'+
+            'polygon-fill: #c9c9ff;'+
+          '}'+
+          '[nbhd_id <= 75] {'+
+            'polygon-fill: #f1cbff;'+
+          '}'+
+          '[nbhd_id <= 70] {'+
+            'polygon-fill: #bae1ff;'+
+          '}'+
+          '[nbhd_id <= 67]{'+
+            'polygon-fill: #1D91C0;'+
+          '}'+
+          '[nbhd_id <= 51] {'+
+            'polygon-fill: #ffbdbd;'+
+          '}'+
+          '[nbhd_id <= 56] {'+
+            'polygon-fill: #fb919b;'+
+          '}'+
+          '[nbhd_id <= 45],[nbhd_id = 51] {'+
+            'polygon-fill: #41B6C4;'+
+          '}'+
+          ' [nbhd_id <= 30] {'+
+            'polygon-fill: #7FCDBB;'+
+          '}'+
+          '[nbhd_id <= 34]  {'+
+            'polygon-fill: #baffc9;'+
+          '}'+
+          '[nbhd_id <= 23] {'+
+            'polygon-fill: #C7E9B4;'+
+          '}'+
+          '[nbhd_id <= 20] {'+
+            'polygon-fill: #e1f7d5;'+
+          '}'+
+          '[nbhd_id <= 12],[nbhd_id = 48]  {'+
+            'polygon-fill: #FFFFCC;'+
+          '}'+
+          '[nbhd_id = 5], '+
+          '[nbhd_id = 9],'+
+          '[nbhd_id = 25],'+
+          '[nbhd_id = 20],'+
+          '[nbhd_id = 50],'+
+          '[nbhd_id = 66],'+
+          '[nbhd_id = 42],'+
+          '[nbhd_id = 32],'+
+          '[nbhd_id = 36]{'+
+            'polygon-fill: #bf91fb;'+
+          '}'+
+          '[nbhd_id = 61],'+
+          '[nbhd_id = 15]{'+
+            'polygon-fill: #91fbd8;'+
+          '}'+
+          '[nbhd_id = 10],' +
+          '[nbhd_id = 65],' +
+          '[nbhd_id = 17],' +
+          '[nbhd_id = 1],' +
+          '[nbhd_id = 44]{'+
+          'polygon-fill: #ffeda3;'+
+          '}'+
+        '}'
         }]
       };
 
